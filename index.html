@@ -12,155 +12,40 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <style>
-      body {
-        margin: 0;
-        font-family: "Montserrat", sans-serif;
-        background-color: #000;
-        color: #fff;
-      }
-      header {
-        background-color: #000;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 1rem 2rem;
-      }
-      header img {
-        height: 60px;
-      }
-      nav {
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-      }
-      nav a {
-        color: #fff;
-        text-decoration: none;
-        font-weight: bold;
-      }
-      .phone-box {
-        background-color: #f3b900;
-        color: #000;
-        padding: 0.5rem 1rem;
-        border-radius: 5px;
-        font-weight: bold;
-      }
-      .hero {
-        text-align: center;
-        background-color: #f3b900;
-        color: #000;
-        padding: 6rem 1rem;
-      }
-      .hero h1 {
-        font-size: 4rem;
-        margin: 0;
-      }
-      .hero p {
-        font-size: 1.2rem;
-        margin: 1rem 0 2rem;
-      }
-      .btn {
-        padding: 1rem 2rem;
-        background-color: transparent;
-        border: 2px solid #000;
-        color: #000;
-        font-weight: bold;
-        cursor: pointer;
-        transition: background 0.3s;
-      }
-      .btn:hover {
-        background-color: #000;
-        color: #fff;
-      }
-      .section {
-        padding: 4rem 2rem;
-      }
-      .section.yellow {
-        background-color: #f3b900;
-        color: #000;
-      }
-      .section h2 {
-        text-align: center;
-        font-size: 2.5rem;
-      }
-      .projects {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 2rem;
-        margin-top: 2rem;
-      }
-      .card {
-        background: #fff;
-        color: #000;
-        border-radius: 8px;
-        padding: 1rem;
-        width: 300px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-      }
-      .card h3 {
-        margin-top: 0;
-      }
-      .card a {
-        color: #f3b900;
-        text-decoration: none;
-      }
-      .contact {
-        background: #111;
-        padding: 4rem 2rem;
-        color: #fff;
-      }
-      form {
-        max-width: 600px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-      }
-      input,
-      textarea {
-        padding: 1rem;
-        border: none;
-        border-radius: 4px;
-      }
-      input[type="submit"] {
-        background: #f3b900;
-        color: #000;
-        font-weight: bold;
-        cursor: pointer;
-      }
-      footer {
-        text-align: center;
-        padding: 2rem;
-        background: #000;
-        color: #fff;
-      }
-    </style>
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
     <header>
       <img src="logo_tuvendedor.png" alt="TuVendedor logo" />
       <nav>
-        <a href="#work">WORK</a>
-        <a href="#about">ABOUT</a>
-        <a href="#contact">CONTACT</a>
+        <a href="#work">PROYECTOS</a>
+        <a href="#about">NOSOTROS</a>
+        <a href="#contact">CONTACTANOS</a>
         <div class="phone-box">(+595) 982 12 12 69</div>
       </nav>
     </header>
 
     <section class="hero">
-      <p>We are</p>
-      <h1>TuVendedor</h1>
-      <p>
-        Soluciones innovadoras en desarrollo de sistemas para necesidades
-        reales.
-      </p>
-      <a href="#contact" class="btn">Hablá con nosotros</a>
+      <div class="video-background">
+        <video autoplay muted loop playsinline>
+          <source src="assets/videos/grupo_informatica.mp4" type="video/mp4" />
+          Tu navegador no soporta videos HTML5.
+        </video>
+      </div>
+
+      <div class="hero-content">
+        <p>Somos</p>
+        <h1>Tu Vendedor</h1>
+        <p>
+          Soluciones innovadoras en desarrollo de sistemas para necesidades
+          reales.
+        </p>
+        <a href="#contact" class="btn">Hablá con nosotros</a>
+      </div>
     </section>
 
     <section class="section yellow" id="work">
-      <h2>WORK</h2>
+      <h2>PROYECTOS</h2>
       <div class="projects">
         <div class="card">
           <h3>Gestión de Ventas</h3>
@@ -185,7 +70,7 @@
     </section>
 
     <section class="section" id="about">
-      <h2>ABOUT</h2>
+      <h2>CONOCENOS</h2>
       <p style="text-align: center; max-width: 700px; margin: 0 auto">
         Somos una empresa enfocada en crear soluciones tecnológicas modernas que
         se adaptan a las necesidades específicas de nuestros clientes.
@@ -194,7 +79,7 @@
     </section>
 
     <section class="contact" id="contact">
-      <h2>CONTACT</h2>
+      <h2>CONTACTO</h2>
       <form>
         <input type="text" name="nombre" placeholder="Tu nombre" required />
         <input type="email" name="email" placeholder="Tu email" required />
