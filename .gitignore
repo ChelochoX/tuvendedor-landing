@@ -1,0 +1,15 @@
+# Editor y sistema
+.DS_Store
+node_modules/
+dist/
+.env
+.vscode/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos temporales
+*.log
+*.tmp
