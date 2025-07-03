@@ -14,14 +14,22 @@
     />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
-  <body>
+  <body id="top">
     <header>
-      <img src="logo_tuvendedor.png" alt="TuVendedor logo" />
+      <a href="#top">
+        <img src="assets/images/logo.png" alt="TuVendedor logo" />
+      </a>
       <nav>
         <a href="#work">PROYECTOS</a>
         <a href="#about">NOSOTROS</a>
         <a href="#contact">CONTACTANOS</a>
-        <div class="phone-box">(+595) 982 12 12 69</div>
+        <a
+          href="https://wa.me/595982121269?text=Hola%2C%20estoy%20interesado%20en%20un%20sistema%20a%20medida%20que%20vi%20en%20la%20web."
+          target="_blank"
+          class="phone-box"
+        >
+          <i class="fab fa-whatsapp"></i> (+595) 982 12 12 69
+        </a>
       </nav>
     </header>
 
@@ -47,40 +55,86 @@
     <section class="section yellow" id="work">
       <h2>PROYECTOS</h2>
       <div class="projects">
-        <div class="card">
+        <!-- Gestión de Ventas -->
+        <div class="modern-card">
           <h3>Gestión de Ventas</h3>
           <p>
-            Sistema para administrar productos, ventas, clientes y reportes.
+            Plataforma intuitiva para publicar y vender <strong>motos</strong>,
+            <strong>vehículos usados</strong> y
+            <strong>propiedades</strong> (terrenos/casas), diseñada para operar
+            desde cualquier dispositivo.
           </p>
+          <p><em>Totalmente responsiva</em></p>
           <a href="#">Ver demo</a>
         </div>
-        <div class="card">
-          <h3>Control Escolar</h3>
+
+        <!-- Auto Agenda -->
+        <div class="modern-card">
+          <h3>Auto Agenda</h3>
           <p>
-            Plataforma académica para inscripción, calificaciones y asistencia.
+            Sistema ideal para <strong>talleres automecánicos</strong> y
+            <strong>auto services</strong>. Permite agendar mantenimientos,
+            llevar historial, emitir facturas y operar con interfaz moderna y
+            adaptable.
           </p>
+          <p><em>Totalmente responsiva</em></p>
           <a href="#">Ver demo</a>
         </div>
-        <div class="card">
-          <h3>Gestión de Caja</h3>
-          <p>Módulo de ingresos, egresos, cierre de caja y arqueo diario.</p>
+
+        <!-- Sistema Académico -->
+        <div class="modern-card">
+          <h3>Sistema Académico</h3>
+          <p>
+            Sistema completo para gestionar <strong>alumnos</strong>,
+            <strong>cursos</strong>, <strong>inscripciones</strong>,
+            <strong>pagos</strong>, <strong>cuenta corriente</strong> y
+            <strong>permisos por roles</strong>. Ideal para instituciones
+            educativas con funcionalidades robustas y adaptadas a múltiples
+            dispositivos.
+          </p>
+          <p><em>Totalmente responsiva</em></p>
           <a href="#">Ver demo</a>
         </div>
       </div>
     </section>
 
     <section class="section" id="about">
-      <h2>CONOCENOS</h2>
-      <p style="text-align: center; max-width: 700px; margin: 0 auto">
-        Somos una empresa enfocada en crear soluciones tecnológicas modernas que
-        se adaptan a las necesidades específicas de nuestros clientes.
-        Desarrollamos software a medida con pasión, eficiencia y visión.
-      </p>
+      <div class="about-wrapper">
+        <div class="image">
+          <img src="assets/images/about1.jpg" alt="Equipo trabajando" />
+        </div>
+        <div class="about-text-wrapper">
+          <h2>NOSOTROS</h2>
+          <div class="text">
+            <p>
+              Somos una empresa enfocada en crear soluciones tecnológicas
+              modernas que se adaptan a las necesidades específicas de nuestros
+              clientes. Desarrollamos software a medida con pasión, eficiencia y
+              visión.
+            </p>
+            <h3>Misión</h3>
+            <p>
+              Brindar soluciones digitales efectivas que impulsen el crecimiento
+              de nuestros clientes a través de la tecnología.
+            </p>
+            <h3>Visión</h3>
+            <p>
+              Ser referentes en innovación tecnológica en el mercado local e
+              internacional, ofreciendo productos de calidad con enfoque humano.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="contact" id="contact">
       <h2>CONTACTO</h2>
-      <form>
+
+      <form
+        id="contactForm"
+        action="https://formsubmit.co/9e96c853e69a1b364046b759b4c52bc5"
+        method="POST"
+      >
         <input type="text" name="nombre" placeholder="Tu nombre" required />
         <input type="email" name="email" placeholder="Tu email" required />
         <textarea
@@ -89,10 +143,52 @@
           placeholder="Tu mensaje"
           required
         ></textarea>
+
+        <!-- Para desactivar el captcha de FormSubmit -->
+        <input type="hidden" name="_captcha" value="false" />
+
         <input type="submit" value="Enviar" />
       </form>
+
+      <!-- Mensaje bonito que se muestra al enviar con éxito -->
+      <div
+        id="mensajeExito"
+        style="
+          display: none;
+          margin-top: 1rem;
+          background-color: #d4edda;
+          padding: 1rem;
+          border-radius: 8px;
+          color: #155724;
+          font-weight: 500;
+          position: relative;
+        "
+      >
+        <button
+          id="cerrarMensaje"
+          style="
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #155724;
+            cursor: pointer;
+          "
+        >
+          ×
+        </button>
+        <strong>¡Gracias por tu mensaje!</strong><br />
+        Valoramos mucho tu interés. Nuestro equipo se comunicará contigo lo
+        antes posible 😊
+      </div>
     </section>
 
     <footer>&copy; 2025 TuVendedor - Todos los derechos reservados.</footer>
+
+    <!-- Asegurate de tener este script enlazado -->
+    <script src="js/main.js"></script>
   </body>
 </html>

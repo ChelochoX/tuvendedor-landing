@@ -7,15 +7,23 @@ body {
 }
 
 header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
   background-color: #000;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 2rem;
+  padding: 0 2rem;
+  height: 80px;
+  overflow: hidden;
 }
 
 header img {
-  height: 60px;
+  height: auto;
+  max-height: 60px;
+  max-width: 150px;
+  object-fit: contain;
 }
 
 nav {
@@ -36,6 +44,18 @@ nav a {
   padding: 0.5rem 1rem;
   border-radius: 5px;
   font-weight: bold;
+}
+
+.logo {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
 }
 
 /* HERO section con video de fondo */
@@ -129,30 +149,50 @@ nav a {
 }
 
 /* Tarjetas de proyectos */
+/* Modern cards para proyectos */
+.modern-card {
+  background: #fff;
+  color: #000;
+  border-radius: 20px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 360px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.modern-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+.modern-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.modern-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.modern-card a {
+  margin-top: auto;
+  color: #f3b900;
+  font-weight: bold;
+  text-decoration: none;
+}
+
 .projects {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
   margin-top: 2rem;
-}
-
-.card {
-  background: #fff;
-  color: #000;
-  border-radius: 8px;
-  padding: 1rem;
-  width: 300px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
-.card h3 {
-  margin-top: 0;
-}
-
-.card a {
-  color: #f3b900;
-  text-decoration: none;
 }
 
 /* Sección de contacto */
@@ -208,23 +248,29 @@ footer {
   color: #fff;
 }
 
+#cerrarMensaje:hover {
+  color: red;
+}
+
 @media screen and (max-width: 767px) {
   header {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    height: auto;
   }
 
   header img {
-    height: 50px;
+    height: 80px;
+    margin-bottom: -10px;
   }
 
   nav {
     flex-direction: column;
-    align-items: flex-start;
     gap: 1rem;
     width: 100%;
-    margin-top: 1rem;
+    padding-top: 1rem;
   }
   nav a {
     display: block;
@@ -233,7 +279,6 @@ footer {
   }
 
   .phone-box {
-    align-self: flex-start;
     margin-top: 1rem;
   }
 
@@ -251,22 +296,83 @@ footer {
     align-items: center;
   }
 
-  .card {
+  .modern-card {
     width: 90%;
+    box-sizing: border-box;
+    padding: 1.5rem;
+    margin: 1rem 0;
   }
 
-  body {
-    overflow-x: hidden;
+  .about-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-text-wrapper {
+    max-width: 100%;
+  }
+
+  .about-wrapper .image {
+    max-width: 100%;
+  }
+
+  .about-wrapper .image img {
+    margin-bottom: 1rem;
+  }
+
+  .about-text-wrapper h2 {
+    text-align: center;
   }
 }
 
-/* Estilos para pantallas grandes de escritorio */
-@media screen and (min-width: 1024px) {
-  .hero-content h1 {
-    font-size: 5rem;
-  }
+.about-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 2rem 1rem;
+  flex-wrap: wrap;
+}
 
-  .section {
-    padding: 6rem 4rem;
+.about-text-wrapper {
+  max-width: 600px;
+  color: #fff;
+}
+
+.about-text-wrapper h2 {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.about-wrapper .image {
+  max-width: 400px;
+  flex-shrink: 0;
+}
+
+.about-wrapper .image img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  height: auto;
+  object-fit: cover;
+}
+
+.about-text-wrapper .text p {
+  margin-bottom: 1.5rem;
+}
+
+.about-text-wrapper .text h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: left;
+}
+
+@media screen and (max-width: 767px) {
+  .about-text-wrapper .text h3,
+  .about-text-wrapper .text p {
+    text-align: center;
   }
 }
