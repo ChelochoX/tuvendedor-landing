@@ -17,12 +17,13 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./certs:/etc/nginx/certs:ro
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./certs/fullchain.pem:/etc/nginx/certs/fullchain.pem
+      - ./certs/privkey.pem:/etc/nginx/certs/privkey.pem
     networks:
       - proxy_network
     restart: unless-stopped
 
 networks:
   proxy_network:
-    driver: bridge
+    external: true
