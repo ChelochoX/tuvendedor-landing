@@ -7,7 +7,7 @@ services:
     volumes:
       - ./landing:/usr/share/nginx/html:ro
     networks:
-      - proxy_network
+      - proxy_network      
     restart: unless-stopped
 
   nginx-proxy:
@@ -22,8 +22,11 @@ services:
       - ./certs/privkey.pem:/etc/nginx/certs/privkey.pem
     networks:
       - proxy_network
+      - proyectos_network
     restart: unless-stopped
 
 networks:
   proxy_network:
+    external: true
+  proyectos_network:
     external: true
