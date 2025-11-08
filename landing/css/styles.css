@@ -1,22 +1,33 @@
-/* Estilos base */
+/* === GRACIA TECH FINAL PULIDO === */
+:root {
+  --primary-color: #59b9c6; /* turquesa principal */
+  --secondary-color: #f5f7f6; /* fondo general más suave */
+  --section-alt: #eef2f3; /* gris más oscuro para "Nosotros" */
+  --accent-color: #eafcfa;
+  --text-color: #1a1a1a;
+}
+
+/* BASE */
 body {
   margin: 0;
   font-family: "Montserrat", sans-serif;
-  background-color: #000;
-  color: #fff;
+  background-color: #f7f6f3;
+  color: var(--text-color);
+  transition: background-color 0.3s ease;
 }
 
+/* HEADER */
 header {
   position: sticky;
   top: 0;
   z-index: 999;
-  background-color: #000;
+  background-color: #f2f5f4; /* tono gris cálido */
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 2rem;
   height: 80px;
-  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
 }
 
 header img {
@@ -33,14 +44,19 @@ nav {
 }
 
 nav a {
-  color: #fff;
+  color: var(--text-color);
   text-decoration: none;
   font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: var(--primary-color);
 }
 
 .phone-box {
-  background-color: #f3b900;
-  color: #000;
+  background-color: #59b9c6; /* color turquesa original */
+  color: #fff;
   padding: 0.6rem 1.2rem;
   border-radius: 8px;
   font-weight: bold;
@@ -48,32 +64,17 @@ nav a {
   align-items: center;
   gap: 0.5rem;
   font-size: 0.95rem;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.phone-box i {
-  font-size: 1rem;
+  transition: all 0.3s ease;
 }
 
 .phone-box:hover {
-  background-color: #ffd633;
+  background-color: #fddf5b; /* dorado suave (resalta muy bien) */
+  color: #000; /* texto negro para contraste */
   transform: translateY(-2px);
   text-decoration: none;
 }
 
-.logo {
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
-
-.logo img {
-  height: 100%;
-  width: auto;
-  object-fit: contain;
-}
-
-/* HERO section con video de fondo */
+/* HERO */
 .hero {
   position: relative;
   height: 100vh;
@@ -95,7 +96,7 @@ nav a {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.5);
+  filter: brightness(0.55);
 }
 
 .hero-content {
@@ -118,108 +119,164 @@ nav a {
 .hero-content p {
   font-size: 1.1rem;
   margin-bottom: 2rem;
-  white-space: normal;
-  word-break: keep-all;
 }
 
 .hero-content .btn {
   display: inline-block;
   margin-top: 1rem;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  background-color: transparent;
-  border: 2px solid #fff;
+  padding: 0.8rem 1.8rem;
+  background-color: var(--primary-color);
   color: #fff;
   font-weight: bold;
   text-decoration: none;
-  transition: background 0.3s, color 0.3s;
+  border-radius: 8px;
+  transition: background 0.3s ease;
 }
 
 .hero-content .btn:hover {
-  background-color: #fff;
-  color: #000;
+  background-color: #4ba9b6;
 }
 
-.hero-svg {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: auto;
-  z-index: 2;
-}
-
-/* Secciones generales */
+/* SECCIONES */
 .section {
   padding: 4rem 2rem;
+  scroll-margin-top: 90px;
 }
 
+/* 🌟 Sección PROYECTOS refinada */
 .section.yellow {
-  background-color: #f3b900;
-  color: #000;
+  background-color: #6fc5cf; /* turquesa intermedio */
+  color: #fff;
+  padding-top: 2.5rem; /* reducido el espacio superior */
+}
+
+.section.yellow h2 {
+  color: #fff;
+  margin-bottom: 2.5rem;
+}
+
+.section.yellow p,
+.section.yellow strong,
+.section.yellow em {
+  color: #fdfdfd;
+}
+
+/* 🖋 Corrección de color de texto en tarjetas de PROYECTOS */
+.section.yellow .modern-card {
+  background: #fff7d6; /* amarillo pastel */
+  color: #000 !important;
+}
+
+.section.yellow .modern-card h3,
+.section.yellow .modern-card p,
+.section.yellow .modern-card strong,
+.section.yellow .modern-card em {
+  color: #000 !important; /* fuerza negro en todo el texto */
 }
 
 .section h2 {
   text-align: center;
   font-size: 2.5rem;
+  margin-bottom: 2rem;
 }
 
-/* Tarjetas de proyectos */
-/* Modern cards para proyectos */
-.modern-card {
-  background: #fff;
-  color: #000;
-  border-radius: 20px;
-  padding: 2rem;
-  width: 100%;
-  max-width: 360px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* NOSOTROS */
+#about {
+  background-color: #f8f5f1;
+  padding: 5rem 2rem;
+}
+
+.about-wrapper {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
-.modern-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+.about-wrapper .image img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
-.modern-card h3 {
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
+.about-text-wrapper {
+  max-width: 600px;
 }
 
-.modern-card p {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 0.5rem;
+.about-text-wrapper h3 {
+  margin-top: 1.5rem;
+  color: var(--primary-color);
 }
 
-.modern-card a {
-  margin-top: auto;
-  color: #f3b900;
-  font-weight: bold;
-  text-decoration: none;
+/* 🌿 Ajuste visual del bloque NOSOTROS */
+.section#about {
+  background-color: #f4f6f5; /* gris cálido y tenue */
+  padding-top: 3rem; /* antes era 4rem, reducimos */
+  padding-bottom: 3rem; /* igual al superior */
 }
 
+/* Espacio más equilibrado arriba y abajo */
+.section#about h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #000;
+}
+
+/* TARJETAS DE PROYECTOS */
 .projects {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
-  margin-top: 2rem;
 }
 
-/* Sección de contacto */
+/* Tarjetas de proyectos con fondo amarillo suave */
+.modern-card {
+  background: #fff7d6; /* amarillo pastel cálido */
+  color: #000;
+  border-radius: 16px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 360px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modern-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.modern-card h3 {
+  color: #000;
+}
+
+.modern-card p,
+.modern-card strong,
+.modern-card em {
+  color: #222; /* texto oscuro legible */
+}
+
+.modern-card a {
+  color: var(--primary-color);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* CONTACTO */
 .contact {
-  background: #111;
-  padding: 4rem 2rem;
+  background: var(--primary-color);
   color: #fff;
+  text-align: center;
+  padding: 3rem 2rem 3rem; /* reduje el espacio inferior */
 }
 
 form {
   max-width: 600px;
-  margin: 0 auto;
+  margin: 2rem auto 0;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -229,84 +286,58 @@ input,
 textarea {
   padding: 1rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 input[type="submit"] {
-  background: #f3b900;
-  color: #000;
+  background: #064c55;
+  color: #fff;
   font-weight: bold;
   cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  transition: 0.3s;
 }
 
-/* Footer */
+input[type="submit"]:hover {
+  background: #03383e;
+}
+
+/* FOOTER */
 footer {
   text-align: center;
-  padding: 2rem;
-  background: #000;
-  color: #fff;
+  padding: 1.5rem 1rem 2rem;
+  background: #f0f3f3;
+  color: #333;
+  font-size: 0.95rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-/* Botón genérico */
-.btn {
-  padding: 1rem 2rem;
-  background-color: transparent;
-  border: 2px solid #000;
-  color: #000;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
+footer p {
+  margin: 0.25rem 0;
 }
 
-.btn:hover {
-  background-color: #000;
-  color: #fff;
+footer .signature {
+  font-style: italic;
+  color: #5aa3a8;
 }
 
-#cerrarMensaje:hover {
-  color: red;
-}
-
-@media screen and (max-width: 767px) {
+/* RESPONSIVE */
+@media (max-width: 767px) {
   header {
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    padding: 1rem;
     height: auto;
-  }
-
-  header img {
-    height: 80px;
-    margin-bottom: -10px;
+    padding: 1rem;
   }
 
   nav {
     flex-direction: column;
     gap: 1rem;
-    width: 100%;
-    padding-top: 1rem;
-  }
-  nav a {
-    display: block;
-    font-size: 1.1rem;
-    font-weight: bold;
-  }
-
-  .phone-box {
-    width: 90%;
-    text-align: center;
-    justify-content: center;
-    font-size: 1rem;
   }
 
   .hero-content h1 {
     font-size: 2.5rem;
-  }
-
-  .hero-content p {
-    font-size: 1rem;
-    text-align: center;
   }
 
   .projects {
@@ -316,81 +347,5 @@ footer {
 
   .modern-card {
     width: 90%;
-    box-sizing: border-box;
-    padding: 1.5rem;
-    margin: 1rem 0;
-  }
-
-  .about-wrapper {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .about-text-wrapper {
-    max-width: 100%;
-  }
-
-  .about-wrapper .image {
-    max-width: 100%;
-  }
-
-  .about-wrapper .image img {
-    margin-bottom: 1rem;
-  }
-
-  .about-text-wrapper h2 {
-    text-align: center;
-  }
-}
-
-.about-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 2rem;
-  padding: 2rem 1rem;
-  flex-wrap: wrap;
-}
-
-.about-text-wrapper {
-  max-width: 600px;
-  color: #fff;
-}
-
-.about-text-wrapper h2 {
-  text-align: left;
-  margin-bottom: 1rem;
-}
-
-.about-wrapper .image {
-  max-width: 400px;
-  flex-shrink: 0;
-}
-
-.about-wrapper .image img {
-  width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-  height: auto;
-  object-fit: cover;
-}
-
-.about-text-wrapper .text p {
-  margin-bottom: 1.5rem;
-}
-
-.about-text-wrapper .text h3 {
-  margin-top: 2rem;
-  margin-bottom: 0.5rem;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-align: left;
-}
-
-@media screen and (max-width: 767px) {
-  .about-text-wrapper .text h3,
-  .about-text-wrapper .text p {
-    text-align: center;
   }
 }

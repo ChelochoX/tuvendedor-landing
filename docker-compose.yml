@@ -1,15 +1,21 @@
 version: "3.8"
 
 services:
+  # ================================
+  # 🌐 Landing de GRACIATECH
+  # ================================
   landing:
     image: nginx:alpine
     container_name: landing_page
     volumes:
       - ./landing:/usr/share/nginx/html:ro
     networks:
-      - proxy_network      
+      - proxy_network
     restart: unless-stopped
 
+  # ================================
+  # 🚀 Reverse Proxy Global (HTTPS)
+  # ================================
   nginx-proxy:
     image: nginx:latest
     container_name: nginx_proxy
@@ -17,17 +23,23 @@ services:
       - "80:80"
       - "443:443"
     volumes:
+      # Config principal y certificados SSL
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./certs/fullchain.pem:/etc/nginx/certs/fullchain.pem
-      - ./certs/privkey.pem:/etc/nginx/certs/privkey.pem
+      - ./certs/fullchain.pem:/etc/nginx/certs/fullchain.pem:ro
+      - ./certs/privkey.pem:/etc/nginx/certs/privkey.pem:ro
+      # Evita conflicto con el default.conf interno
       - /dev/null:/etc/nginx/conf.d/default.conf
+    # 🔗 IMPORTANTE: ahora ve tanto GraciaTech como TuVendedor
     networks:
-      - proxy_network
-      - proyectos_network
+      - proxy_network # → para GraciaTech
+      - ecommerce_network # → para TuVendedor (frontend/backend)
     restart: unless-stopped
 
+# ================================
+# 🔗 Redes externas compartidas
+# ================================
 networks:
   proxy_network:
     external: true
-  proyectos_network:
+  ecommerce_network:
     external: true
