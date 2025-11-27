@@ -21,20 +21,31 @@ header {
   position: sticky;
   top: 0;
   z-index: 999;
-  background-color: #f2f5f4; /* tono gris cálido */
+  background-color: #f2f5f4;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 2rem;
-  height: 80px;
+  height: 65px; /* 🔥 HEADER CHICO Y FIJO */
+  overflow: visible; /* 🔥 PERMITE QUE EL LOGO SOBRESALGA */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
 }
 
+/* Contenedor del logo */
+header a:first-child {
+  display: flex;
+  align-items: center; /* ✔ Alineación vertical perfecta */
+  height: 100%;
+}
+
+/* LOGO GRANDE, LEGIBLE Y PERFECTAMENTE CENTRADO */
 header img {
-  height: auto;
-  max-height: 60px;
-  max-width: 150px;
+  height: 90px; /* 🔥 LOGO GRANDE Y LEGIBLE */
+  width: auto;
   object-fit: contain;
+  position: relative;
+  top: -1px; /* 🔥 LO CENTRAMOS VISUALMENTE */
+  pointer-events: none; /* opcional, evita clic accidental en el logo */
 }
 
 nav {
@@ -55,7 +66,7 @@ nav a:hover {
 }
 
 .phone-box {
-  background-color: #59b9c6; /* color turquesa original */
+  background-color: #59b9c6;
   color: #fff;
   padding: 0.6rem 1.2rem;
   border-radius: 8px;
@@ -68,8 +79,8 @@ nav a:hover {
 }
 
 .phone-box:hover {
-  background-color: #fddf5b; /* dorado suave (resalta muy bien) */
-  color: #000; /* texto negro para contraste */
+  background-color: #fddf5b;
+  color: #000;
   transform: translateY(-2px);
   text-decoration: none;
 }
@@ -143,11 +154,11 @@ nav a:hover {
   scroll-margin-top: 90px;
 }
 
-/* 🌟 Sección PROYECTOS refinada */
+/* PROYECTOS */
 .section.yellow {
-  background-color: #6fc5cf; /* turquesa intermedio */
+  background-color: #6fc5cf;
   color: #fff;
-  padding-top: 2.5rem; /* reducido el espacio superior */
+  padding-top: 2.5rem;
 }
 
 .section.yellow h2 {
@@ -161,9 +172,8 @@ nav a:hover {
   color: #fdfdfd;
 }
 
-/* 🖋 Corrección de color de texto en tarjetas de PROYECTOS */
 .section.yellow .modern-card {
-  background: #fff7d6; /* amarillo pastel */
+  background: #fff7d6;
   color: #000 !important;
 }
 
@@ -171,7 +181,7 @@ nav a:hover {
 .section.yellow .modern-card p,
 .section.yellow .modern-card strong,
 .section.yellow .modern-card em {
-  color: #000 !important; /* fuerza negro en todo el texto */
+  color: #000 !important;
 }
 
 .section h2 {
@@ -211,21 +221,19 @@ nav a:hover {
   color: var(--primary-color);
 }
 
-/* 🌿 Ajuste visual del bloque NOSOTROS */
 .section#about {
-  background-color: #f4f6f5; /* gris cálido y tenue */
-  padding-top: 3rem; /* antes era 4rem, reducimos */
-  padding-bottom: 3rem; /* igual al superior */
+  background-color: #f4f6f5;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
-/* Espacio más equilibrado arriba y abajo */
 .section#about h2 {
   margin-top: 0;
   margin-bottom: 1.5rem;
   color: #000;
 }
 
-/* TARJETAS DE PROYECTOS */
+/* TARJETAS */
 .projects {
   display: flex;
   flex-wrap: wrap;
@@ -233,9 +241,8 @@ nav a:hover {
   gap: 2rem;
 }
 
-/* Tarjetas de proyectos con fondo amarillo suave */
 .modern-card {
-  background: #fff7d6; /* amarillo pastel cálido */
+  background: #fff7d6;
   color: #000;
   border-radius: 16px;
   padding: 2rem;
@@ -257,7 +264,7 @@ nav a:hover {
 .modern-card p,
 .modern-card strong,
 .modern-card em {
-  color: #222; /* texto oscuro legible */
+  color: #222;
 }
 
 .modern-card a {
@@ -271,7 +278,7 @@ nav a:hover {
   background: var(--primary-color);
   color: #fff;
   text-align: center;
-  padding: 3rem 2rem 3rem; /* reduje el espacio inferior */
+  padding: 3rem 2rem 3rem;
 }
 
 form {
