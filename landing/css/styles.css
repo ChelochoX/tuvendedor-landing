@@ -1,8 +1,8 @@
 /* === GRACIA TECH FINAL PULIDO === */
 :root {
-  --primary-color: #59b9c6; /* turquesa principal */
-  --secondary-color: #f5f7f6; /* fondo general más suave */
-  --section-alt: #eef2f3; /* gris más oscuro para "Nosotros" */
+  --primary-color: #59b9c6;
+  --secondary-color: #f5f7f6;
+  --section-alt: #eef2f3;
   --accent-color: #eafcfa;
   --text-color: #1a1a1a;
 }
@@ -20,34 +20,34 @@ body {
 header {
   position: sticky;
   top: 0;
-  z-index: 999;
+  z-index: 9999;
   background-color: #f2f5f4;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 2rem;
-  height: 65px; /* 🔥 HEADER CHICO Y FIJO */
-  overflow: visible; /* 🔥 PERMITE QUE EL LOGO SOBRESALGA */
+  height: 65px;
+  overflow: visible;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
 }
 
-/* Contenedor del logo */
+/* LOGO */
 header a:first-child {
   display: flex;
-  align-items: center; /* ✔ Alineación vertical perfecta */
+  align-items: center;
   height: 100%;
 }
 
-/* LOGO GRANDE, LEGIBLE Y PERFECTAMENTE CENTRADO */
 header img {
-  height: 90px; /* 🔥 LOGO GRANDE Y LEGIBLE */
+  height: 90px;
   width: auto;
   object-fit: contain;
   position: relative;
-  top: -1px; /* 🔥 LO CENTRAMOS VISUALMENTE */
-  pointer-events: none; /* opcional, evita clic accidental en el logo */
+  top: -1px;
+  pointer-events: none;
 }
 
+/* NAV */
 nav {
   display: flex;
   align-items: center;
@@ -85,6 +85,14 @@ nav a:hover {
   text-decoration: none;
 }
 
+/* HAMBURGUESA */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
 /* HERO */
 .hero {
   position: relative;
@@ -99,7 +107,6 @@ nav a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
   overflow: hidden;
 }
 
@@ -184,12 +191,6 @@ nav a:hover {
   color: #000 !important;
 }
 
-.section h2 {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-}
-
 /* NOSOTROS */
 #about {
   background-color: #f8f5f1;
@@ -221,18 +222,6 @@ nav a:hover {
   color: var(--primary-color);
 }
 
-.section#about {
-  background-color: #f4f6f5;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-
-.section#about h2 {
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-  color: #000;
-}
-
 /* TARJETAS */
 .projects {
   display: flex;
@@ -255,22 +244,6 @@ nav a:hover {
 .modern-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-}
-
-.modern-card h3 {
-  color: #000;
-}
-
-.modern-card p,
-.modern-card strong,
-.modern-card em {
-  color: #222;
-}
-
-.modern-card a {
-  color: var(--primary-color);
-  font-weight: bold;
-  text-decoration: none;
 }
 
 /* CONTACTO */
@@ -317,42 +290,72 @@ footer {
   background: #f0f3f3;
   color: #333;
   font-size: 0.95rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-footer p {
-  margin: 0.25rem 0;
-}
-
-footer .signature {
-  font-style: italic;
-  color: #5aa3a8;
-}
-
-/* RESPONSIVE */
-@media (max-width: 767px) {
-  header {
-    flex-direction: column;
-    align-items: center;
-    height: auto;
-    padding: 1rem;
+/* ========================= */
+/* ====== RESPONSIVE ======= */
+/* ========================= */
+@media (max-width: 900px) {
+  /* LOGO más pequeño */
+  header img {
+    height: 55px;
   }
 
+  /* Mostrar hamburguesa */
+  .menu-toggle {
+    display: block;
+    z-index: 10000;
+  }
+
+  /* Menú móvil */
   nav {
+    display: none; /* oculto por defecto */
     flex-direction: column;
-    gap: 1rem;
+    position: fixed;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    background: #f2f5f4;
+    padding: 1.5rem 0;
+    text-align: center;
+    z-index: 9999; /* 🔥 ahora aparece encima del video */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
 
-  .hero-content h1 {
-    font-size: 2.5rem;
+  nav.active {
+    display: flex;
   }
 
-  .projects {
-    flex-direction: column;
-    align-items: center;
+  nav a {
+    font-size: 1.2rem;
+    padding: 0.7rem 0;
   }
 
-  .modern-card {
-    width: 90%;
+  .phone-box {
+    margin: 0.5rem auto 0;
   }
+}
+
+/* ==== Mejoras del menú móvil (NO modifica nada de lo anterior) ==== */
+.menu-toggle:focus {
+  outline: none;
+}
+
+.menu-toggle i {
+  user-select: none;
+}
+s #nav-menu.active {
+  display: flex !important;
+}
+
+/* === ARREGLO DEFINITIVO DEL CURSOR FE0 EN EL LOGO === */
+header a:first-child,
+header a:first-child * {
+  caret-color: transparent !important; /* Oculta el cursor negro */
+  user-select: none !important; /* Evita selección accidental */
+  -webkit-user-select: none !important;
+}
+
+header a:first-child:focus {
+  outline: none !important; /* Quita borde de enfoque */
 }

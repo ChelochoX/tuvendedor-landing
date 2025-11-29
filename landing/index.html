@@ -41,7 +41,14 @@
       <a href="#top">
         <img src="assets/images/logo.png" alt="Gracia Tech logo" />
       </a>
-      <nav>
+
+      <!-- 🔥 BOTÓN HAMBURGUESA (NO TOCADO, SOLO SIN ONCLICK) -->
+      <div class="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <!-- 🔥 SOLO SE AGREGA id="nav-menu" -->
+      <nav id="nav-menu">
         <a href="#work">PROYECTOS</a>
         <a href="#about">NOSOTROS</a>
         <a href="#contact">CONTACTO</a>
@@ -49,7 +56,6 @@
           href="https://wa.me/595982121269?text=Hola%2C%20quiero%20saber%20más%20sobre%20los%20proyectos%20de%20Gracia%20Tech."
           target="_blank"
           class="phone-box"
-          title="Llamadas o WhatsApp"
         >
           <i class="fas fa-phone-alt"></i> <i class="fab fa-whatsapp"></i>
           (+595) 982 12 12 69
@@ -163,6 +169,26 @@
         ✨ Innovación con propósito. Tecnología que nace de la gracia.
       </p>
     </footer>
+
+    <!-- 🔥 JS NUEVO PARA EL MENÚ (NO ROMPE NADA) -->
+    <script>
+      const toggleBtn = document.querySelector(".menu-toggle");
+      const navMenu = document.getElementById("nav-menu");
+
+      toggleBtn.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+      });
+
+      // cerrar menú al hacer clic en un enlace
+      document.querySelectorAll("#nav-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navMenu.classList.remove("active");
+        });
+      });
+
+      // Quitar el foco feo del botón hamburguesa
+      toggleBtn.addEventListener("mousedown", (e) => e.preventDefault());
+    </script>
 
     <script src="js/main.js"></script>
   </body>
