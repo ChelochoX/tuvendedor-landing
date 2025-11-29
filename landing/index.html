@@ -5,6 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gracia Tech - Innovación con propósito</title>
 
+    <!-- ====== FAVICONS OFICIALES GRACIA TECH ====== -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="assets/images/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/images/apple-touch-icon.png"
+    />
+
+    <meta name="apple-mobile-web-app-title" content="Gracia Tech" />
+    <link rel="manifest" href="assets/images/site.webmanifest" />
+
+    <!-- ====== ESTILOS Y FUENTES ====== -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -22,7 +41,14 @@
       <a href="#top">
         <img src="assets/images/logo.png" alt="Gracia Tech logo" />
       </a>
-      <nav>
+
+      <!-- 🔥 BOTÓN HAMBURGUESA (NO TOCADO, SOLO SIN ONCLICK) -->
+      <div class="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <!-- 🔥 SOLO SE AGREGA id="nav-menu" -->
+      <nav id="nav-menu">
         <a href="#work">PROYECTOS</a>
         <a href="#about">NOSOTROS</a>
         <a href="#contact">CONTACTO</a>
@@ -30,7 +56,6 @@
           href="https://wa.me/595982121269?text=Hola%2C%20quiero%20saber%20más%20sobre%20los%20proyectos%20de%20Gracia%20Tech."
           target="_blank"
           class="phone-box"
-          title="Llamadas o WhatsApp"
         >
           <i class="fas fa-phone-alt"></i> <i class="fab fa-whatsapp"></i>
           (+595) 982 12 12 69
@@ -63,8 +88,7 @@
           <h3>Gestión Comercial</h3>
           <p>
             Plataforma moderna para administrar <strong>ventas</strong>,
-            <strong>clientes</strong> y <strong>catálogos online</strong>,
-            adaptable a cualquier dispositivo.
+            <strong>clientes</strong> y <strong>catálogos online</strong>.
           </p>
           <p><em>Desarrollo a medida · Totalmente responsivo</em></p>
         </div>
@@ -73,18 +97,14 @@
           <h3>Auto Agenda</h3>
           <p>
             Sistema para <strong>talleres mecánicos</strong> y
-            <strong>auto services</strong>. Permite gestionar citas, facturas y
-            reportes de manera simple.
+            <strong>auto services</strong>.
           </p>
           <p><em>Interfaz moderna y adaptable</em></p>
         </div>
 
         <div class="modern-card">
           <h3>Sistema Académico</h3>
-          <p>
-            Gestión integral para instituciones educativas: alumnos, cursos,
-            pagos y permisos por rol.
-          </p>
+          <p>Gestión integral para instituciones educativas.</p>
           <p><em>Multiusuario · 100% en la nube</em></p>
         </div>
       </div>
@@ -101,20 +121,12 @@
           <div class="text">
             <p>
               En <strong>Gracia Tech</strong> creemos que la tecnología puede
-              ser una herramienta de bendición. Creamos sistemas y soluciones
-              que impulsan a personas y negocios, guiados por valores y
-              propósito.
+              ser una herramienta de bendición.
             </p>
             <h3>Misión</h3>
-            <p>
-              Desarrollar soluciones digitales efectivas que reflejen
-              excelencia, integridad y servicio.
-            </p>
+            <p>Desarrollar soluciones digitales efectivas con excelencia.</p>
             <h3>Visión</h3>
-            <p>
-              Ser una empresa referente en innovación con propósito, donde la
-              gracia inspire cada línea de código.
-            </p>
+            <p>Ser una empresa referente en innovación con propósito.</p>
           </div>
         </div>
       </div>
@@ -126,7 +138,7 @@
 
       <form
         id="contactForm"
-        action="https://formsubmit.co/9e96c853e69a1b364046b759b4c52bc5"
+        action="https://formsubmit.co/contacto@graciatech.com.py"
         method="POST"
       >
         <input type="text" name="nombre" placeholder="Tu nombre" required />
@@ -138,45 +150,16 @@
           required
         ></textarea>
 
-        <!-- Desactivar captcha de FormSubmit -->
         <input type="hidden" name="_captcha" value="false" />
+
+        <input
+          type="hidden"
+          name="_next"
+          value="https://graciatech.com.py/gracias.html"
+        />
 
         <input type="submit" value="Enviar" />
       </form>
-
-      <!-- Mensaje de éxito -->
-      <div
-        id="mensajeExito"
-        style="
-          display: none;
-          margin-top: 1rem;
-          background-color: #eafcfa;
-          padding: 1rem;
-          border-radius: 8px;
-          color: #055160;
-          font-weight: 500;
-          position: relative;
-        "
-      >
-        <button
-          id="cerrarMensaje"
-          style="
-            position: absolute;
-            top: 8px;
-            right: 12px;
-            background: none;
-            border: none;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #055160;
-            cursor: pointer;
-          "
-        >
-          ×
-        </button>
-        <strong>¡Gracias por tu mensaje!</strong><br />
-        Nos comunicaremos contigo pronto 💙
-      </div>
     </section>
 
     <!-- ===== FOOTER ===== -->
@@ -186,6 +169,26 @@
         ✨ Innovación con propósito. Tecnología que nace de la gracia.
       </p>
     </footer>
+
+    <!-- 🔥 JS NUEVO PARA EL MENÚ (NO ROMPE NADA) -->
+    <script>
+      const toggleBtn = document.querySelector(".menu-toggle");
+      const navMenu = document.getElementById("nav-menu");
+
+      toggleBtn.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+      });
+
+      // cerrar menú al hacer clic en un enlace
+      document.querySelectorAll("#nav-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navMenu.classList.remove("active");
+        });
+      });
+
+      // Quitar el foco feo del botón hamburguesa
+      toggleBtn.addEventListener("mousedown", (e) => e.preventDefault());
+    </script>
 
     <script src="js/main.js"></script>
   </body>
