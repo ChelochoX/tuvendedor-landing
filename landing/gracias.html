@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gracias - Gracia Tech</title>
 
+    <link rel="icon" href="assets/images/favicon.ico" />
     <link rel="stylesheet" href="css/styles.css" />
 
     <style>
       body {
-        background: #f8fafc;
+        background: #e8f4f6;
         font-family: "Montserrat", sans-serif;
         text-align: center;
         padding: 60px 20px;
@@ -18,42 +19,80 @@
       .box {
         max-width: 600px;
         margin: auto;
-        background: white;
-        padding: 40px;
-        border-radius: 16px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        background: #ffffff;
+        padding: 45px 40px;
+        border-radius: 18px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        animation: fadeIn 0.6s ease-out;
       }
 
       img.logo {
-        width: 140px;
-        margin-bottom: 20px;
+        width: 150px;
+        opacity: 0;
+        animation: fadeSlide 0.8s ease forwards;
+        animation-delay: 0.2s;
       }
 
       h1 {
         color: #0ca3ba;
-        font-size: 32px;
-        margin-bottom: 10px;
+        font-size: 34px;
+        margin-bottom: 15px;
+        opacity: 0;
+        animation: fadeSlide 0.8s ease forwards;
+        animation-delay: 0.4s;
       }
 
       p {
-        color: #555;
-        font-size: 16px;
-        margin-bottom: 25px;
+        color: #444;
+        font-size: 17px;
+        line-height: 1.6;
+        margin-bottom: 30px;
+        opacity: 0;
+        animation: fadeSlide 0.8s ease forwards;
+        animation-delay: 0.6s;
       }
 
       a.btn {
         display: inline-block;
         background: #0ca3ba;
         color: white;
-        padding: 12px 22px;
+        padding: 14px 26px;
         text-decoration: none;
-        border-radius: 8px;
+        border-radius: 10px;
         font-weight: bold;
-        transition: 0.2s ease;
+        font-size: 16px;
+        transition: all 0.25s ease;
+        opacity: 0;
+        animation: fadeSlide 0.8s ease forwards;
+        animation-delay: 0.8s;
       }
 
       a.btn:hover {
         background: #087a8e;
+        transform: translateY(-2px);
+      }
+
+      /* Animaciones */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.97);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes fadeSlide {
+        from {
+          opacity: 0;
+          transform: translateY(15px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
     </style>
   </head>
@@ -66,7 +105,7 @@
 
       <p>
         Gracias por comunicarte con <strong>Gracia Tech</strong>.<br />
-        Nuestro equipo se pondrá en contacto contigo muy pronto 💙
+        Nuestro equipo te responderá muy pronto 💙
       </p>
 
       <a href="index.html" class="btn">Volver al inicio</a>
